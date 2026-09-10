@@ -91,6 +91,8 @@ BASE = Path(__file__).parent
 LOGO_B64   = load_b64(str(BASE / "assets" / "logo.png"))
 BG_B64     = load_b64(str(BASE / "assets" / "train_bg.jpg"))
 BG_CSS_VAL = f"url('data:image/jpeg;base64,{BG_B64}')" if BG_B64 else "none"
+QR_PATH    = BASE / "assets" / "trackyukti_qr_card.png"
+QR_B64     = load_b64(str(QR_PATH))
 
 # ─────────────────────────────────────────────────────────────────────────────
 # COLOR SYSTEM & DESIGN TOKENS
@@ -588,7 +590,7 @@ if not st.session_state["is_logged_in"]:
             Step 1 — Role & Operating Branch Selection
           </div>
           <div style="font-size:12.5px;color:#CBD5E1;">
-            Apna role aur operating department select karein. Operational control aur safety clearance per-department assign hote hain.
+            Select authorized operating department or control role. System privileges and possession approvals are scoped to assigned jurisdiction.
           </div>
         </div>
         """, unsafe_allow_html=True)
@@ -711,6 +713,32 @@ if not st.session_state["is_logged_in"]:
                 )
                 st.rerun()
 
+        # Mobile Access Terminal QR Code
+        if QR_PATH.exists():
+            st.markdown('<div style="margin-top:14px;"></div>', unsafe_allow_html=True)
+            with st.expander("📱 Mobile Access Terminal QR · Scan on Phone", expanded=False):
+                st.markdown(
+                    '<div style="text-align:center;font-size:12px;color:#94A3B8;margin-bottom:8px;">'
+                    'Scan with any smartphone camera on the station/division Wi-Fi network to open the command console directly on mobile.'
+                    '</div>',
+                    unsafe_allow_html=True,
+                )
+                if QR_B64:
+                    st.markdown(
+                        f'<div style="text-align:center;margin-bottom:10px;">'
+                        f'<img src="data:image/png;base64,{QR_B64}" style="max-width:240px;width:100%;border-radius:10px;border:1.5px solid rgba(245,158,11,0.5);box-shadow:0 4px 14px rgba(0,0,0,0.5);">'
+                        f'</div>',
+                        unsafe_allow_html=True,
+                    )
+                with open(QR_PATH, "rb") as f_qr:
+                    st.download_button(
+                        label="📥 Download Railway Terminal QR Card",
+                        data=f_qr.read(),
+                        file_name="trackyukti_mobile_terminal_qr.png",
+                        mime="image/png",
+                        use_container_width=True,
+                    )
+
     st.stop()
 
 
@@ -752,6 +780,32 @@ with st.sidebar:
       </div>
     </div>
     """, unsafe_allow_html=True)
+
+    # Mobile Access Terminal QR in Sidebar
+    if QR_PATH.exists():
+        with st.expander("📱 Mobile Terminal QR", expanded=False):
+            st.markdown(
+                '<div style="font-size:11px;color:#94A3B8;text-align:center;margin-bottom:6px;">'
+                'Scan on station Wi-Fi to open on smartphone or tablet'
+                '</div>',
+                unsafe_allow_html=True,
+            )
+            if QR_B64:
+                st.markdown(
+                    f'<div style="text-align:center;margin-bottom:8px;">'
+                    f'<img src="data:image/png;base64,{QR_B64}" style="max-width:180px;width:100%;border-radius:8px;border:1px solid rgba(245,158,11,0.4);">'
+                    f'</div>',
+                    unsafe_allow_html=True,
+                )
+            with open(QR_PATH, "rb") as f_qr_sb:
+                st.download_button(
+                    label="📥 Save Standee Card",
+                    data=f_qr_sb.read(),
+                    file_name="trackyukti_mobile_terminal_qr.png",
+                    mime="image/png",
+                    use_container_width=True,
+                    key="sb_qr_download",
+                )
 
     st.markdown("#### 📍 Corridor Jurisdiction")
     sel_corr = st.selectbox(
