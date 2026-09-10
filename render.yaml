@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: trainyatri-railway-block-planner
+    name: trackyukti-railway-block-planner
     runtime: docker
     plan: free
     region: singapore
