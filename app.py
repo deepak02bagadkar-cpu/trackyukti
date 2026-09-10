@@ -1,7 +1,7 @@
 """
 app.py
 -------
-TRAINYATRI — AI-Powered Railway Block Planning & Optimization System
+TRACK YUKTI — AI-Powered Railway Block Planning & Optimization System
 WEST CENTRAL RAILWAY (WCR) — JABALPUR DIVISION
 Joint Rolling Block Planning & Corridor Operations Portal (IR-JRBP System)
 """
@@ -71,7 +71,7 @@ seed_if_empty()
 # PAGE CONFIGURATION
 # ─────────────────────────────────────────────────────────────────────────────
 st.set_page_config(
-    page_title="Trainyatri : Railway Block Planner",
+    page_title="Track Yukti : Railway Block Planner",
     page_icon="🚆",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -550,7 +550,7 @@ def reset_all():
 # =============================================================================
 if not st.session_state["is_logged_in"]:
     logo_html = (
-        f'<img src="data:image/png;base64,{LOGO_B64}" style="height:115px;width:auto;display:block;margin:0 auto 14px;filter:drop-shadow(0 4px 14px rgba(0,0,0,0.6));" alt="TRAINYATRI">'
+        f'<img src="data:image/png;base64,{LOGO_B64}" style="height:115px;width:auto;display:block;margin:0 auto 14px;filter:drop-shadow(0 4px 14px rgba(0,0,0,0.6));" alt="TRACK YUKTI">'
         if LOGO_B64 else ""
     )
 
@@ -562,7 +562,7 @@ if not st.session_state["is_logged_in"]:
           For Ministry of Railways &amp; Government of India
         </div>
         <h1 style="margin:6px 0 2px;font-size:34px;font-weight:900;color:#F59E0B;letter-spacing:-0.02em;">
-          TRAINYATRI
+          TRACK YUKTI
         </h1>
         <div style="font-size:14px;color:#38BDF8;font-weight:700;letter-spacing:0.04em;">
           Railway Block Planner
@@ -722,11 +722,11 @@ if not st.session_state["is_logged_in"]:
 with st.sidebar:
     if LOGO_B64:
         st.markdown(
-            f'<div style="text-align:center;margin-bottom:8px;"><img src="data:image/png;base64,{LOGO_B64}" style="height:72px;width:auto;filter:drop-shadow(0 2px 8px rgba(0,0,0,0.5));" alt="TRAINYATRI"></div>',
+            f'<div style="text-align:center;margin-bottom:8px;"><img src="data:image/png;base64,{LOGO_B64}" style="height:72px;width:auto;filter:drop-shadow(0 2px 8px rgba(0,0,0,0.5));" alt="TRACK YUKTI"></div>',
             unsafe_allow_html=True,
         )
     st.markdown(
-        '<span style="font-size:20px;font-weight:900;color:#F59E0B;">TRAINYATRI</span>'
+        '<span style="font-size:20px;font-weight:900;color:#F59E0B;">TRACK YUKTI</span>'
         '<br><span style="font-size:12px;color:#38BDF8;font-weight:700;letter-spacing:0.04em;">Railway Block Planner</span>'
         '<br><span style="font-size:10.5px;color:#94A3B8;">WCR Jabalpur Division · Prototype Data</span>',
         unsafe_allow_html=True,
@@ -902,7 +902,7 @@ status_badge = (
 )
 
 logo_hdr = (
-    f'<img src="data:image/png;base64,{LOGO_B64}" style="height:64px;width:auto;filter:drop-shadow(0 2px 10px rgba(0,0,0,0.5));" alt="TRAINYATRI">'
+    f'<img src="data:image/png;base64,{LOGO_B64}" style="height:64px;width:auto;filter:drop-shadow(0 2px 10px rgba(0,0,0,0.5));" alt="TRACK YUKTI">'
     if LOGO_B64 else ""
 )
 
@@ -914,7 +914,7 @@ with hdr_c1:
       {logo_hdr}
       <div>
         <div style="font-size:24px;font-weight:900;color:#F59E0B;letter-spacing:-0.02em;">
-          TRAINYATRI
+          TRACK YUKTI
           <span style="font-size:12px;font-weight:700;color:#93C5FD;background:rgba(37,99,235,0.25);padding:3px 8px;border-radius:6px;margin-left:8px;border:1px solid rgba(59,130,246,0.35);">
             WCR JABALPUR DIVISION
           </span>
@@ -1496,7 +1496,7 @@ else:
             st.markdown(f"""
             <div class="ty-card" style="border-top:3px solid #10B981;">
               <div style="font-size:12px;font-weight:800;color:#34D399;text-transform:uppercase;">
-                Trainyatri Optimized Plan (Coordinated Spatial Bundles)
+                TrackYukti Optimized Plan (Coordinated Spatial Bundles)
               </div>
               <h2 style="margin:8px 0 4px;font-size:26px;font-weight:900;color:#4ADE80;">
                 {optimization_comp['optimized_duration_mins'] // 60}h {optimization_comp['optimized_duration_mins'] % 60}m
@@ -1666,7 +1666,7 @@ else:
         with fc2:
             st.markdown(f"""
             <div class="ty-card" style="border-top:3px solid #38BDF8;">
-              <div style="font-size:11px;font-weight:800;color:#94A3B8;text-transform:uppercase;">With Trainyatri Optimization</div>
+              <div style="font-size:11px;font-weight:800;color:#94A3B8;text-transform:uppercase;">With TrackYukti Optimization</div>
               <h2 style="margin:6px 0;color:#38BDF8;font-size:28px;font-weight:900;">₹{financial_impact['cost_with_optimization_lakhs']} Lakhs</h2>
               <div style="font-size:12px;color:#CBD5E1;">Synchronized joint possession minimizing rake holding.</div>
             </div>
@@ -1733,7 +1733,7 @@ else:
             st.download_button(
                 label="📥 Export Master Timetable (CSV)",
                 data=csv_buffer.getvalue(),
-                file_name=f"trainyatri_blocks_{datetime.now().strftime('%Y%m%d_%H%M')}.csv",
+                file_name=f"trackyukti_blocks_{datetime.now().strftime('%Y%m%d_%H%M')}.csv",
                 mime="text/csv",
                 use_container_width=True,
             )
@@ -1768,7 +1768,7 @@ for ent in audit_entries:
 # ─────────────────────────────────────────────────────────────────────────────
 st.markdown("""
 <div style="text-align:center;padding:24px 0 10px;font-size:11.5px;color:#94A3B8;border-top:1px solid rgba(148,163,184,0.15);margin-top:30px;">
-  <b style="color:#F59E0B;">TRAINYATRI</b> &nbsp;·&nbsp; Railway Block Planner
+  <b style="color:#F59E0B;">TRACK YUKTI</b> &nbsp;·&nbsp; Railway Block Planner
   <br>For Ministry of Railways &amp; Government of India &nbsp;·&nbsp; West Central Railway (WCR) &nbsp;·&nbsp; Jabalpur Division &nbsp;·&nbsp; Database Connected &nbsp;·&nbsp; Prototype Data
 </div>
 """, unsafe_allow_html=True)
