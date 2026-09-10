@@ -61,7 +61,7 @@ base_starts = res.schedule.set_index("request_id")["start_min"]
 delayed_sched = delayed_res.schedule.copy()
 delayed_sched["shifted"] = (delayed_sched["start_min"] != delayed_sched["request_id"].map(base_starts))
 shifted_count = delayed_sched[delayed_sched["is_scheduled"]]["shifted"].sum()
-print(f"-> Red Alert Handled! Dynamically shifted {shifted_count} affected block(s) without safety violation.")
+print(f"-> Schedule Updated. {shifted_count} affected block(s) were re-optimized without safety violation.")
 
 print("\n" + "=" * 70)
 print("✅ ALL PIPELINE LAYERS (DATA -> ML RISK -> GIS -> SOLVER -> UI) WORKING PERFECTLY!")

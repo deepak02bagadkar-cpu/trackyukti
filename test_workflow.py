@@ -193,15 +193,17 @@ def run_all_tests():
     # ─────────────────────────────────────────────────────────────────────────
     # TEST 10: Check clock & UI requirements in app.py
     # ─────────────────────────────────────────────────────────────────────────
-    print("\n▶ Running TEST 10: Live IST Clock & UI Branding Verification...")
+    print("\n▶ Running TEST 10: Operational Decision-Support UI & Branding Verification...")
     app_code = Path("app.py").read_text(encoding="utf-8")
 
     assert "Asia/Kolkata" in app_code, "TEST 10 FAILED: IST Timezone Asia/Kolkata missing in app.py"
-    assert "TRACK<span style=\"color:#F59E0B;\">YUKTI</span>" in app_code or "TRACK YUKTI" in app_code, "TEST 10 FAILED: TRACK YUKTI branding missing"
-    assert "AI-Powered Railway Block Planning & Optimization System" in app_code, "TEST 10 FAILED: Professional subheading missing"
-    assert "Railway block planning mein multiple departments" in app_code, "TEST 10 FAILED: Hinglish problem understanding missing"
+    assert "TRACK YUKTI" in app_code, "TEST 10 FAILED: TRACK YUKTI branding missing"
+    assert "Track Yukti : Railway Block Planner" in app_code, "TEST 10 FAILED: Official project title 'Track Yukti : Railway Block Planner' missing"
+    assert "Railway Block Planner" in app_code, "TEST 10 FAILED: Professional subtitle missing"
+    assert "Railway block planning mein multiple departments" not in app_code, "TEST 10 FAILED: Hinglish text was not removed!"
+    assert "Problem Understanding & System Objective" not in app_code, "TEST 10 FAILED: Presentation section was not removed!"
     assert "DRM Emergency Stop" not in app_code, "TEST 10 FAILED: Unnecessary 'STOP' text was not removed!"
-    print("  ✓ PASS: Live Asia/Kolkata IST 24-hour clock, TRACK YUKTI branding, subheading, Hinglish problem understanding, and STOP removal all verified!")
+    print("  ✓ PASS: Live Asia/Kolkata IST 24-hour clock, Track Yukti : Railway Block Planner branding, English operational layout, Hinglish removal, and STOP removal all verified!")
 
     # ─────────────────────────────────────────────────────────────────────────
     # TEST 11: Track Master, Condition & Defects Database Subsystem

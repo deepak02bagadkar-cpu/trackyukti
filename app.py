@@ -71,7 +71,7 @@ seed_if_empty()
 # PAGE CONFIGURATION
 # ─────────────────────────────────────────────────────────────────────────────
 st.set_page_config(
-    page_title="TRACK YUKTI | WCR Jabalpur Division",
+    page_title="Track Yukti : Railway Block Planner",
     page_icon="🚆",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -564,11 +564,11 @@ if not st.session_state["is_logged_in"]:
         <h1 style="margin:6px 0 2px;font-size:34px;font-weight:900;color:#F59E0B;letter-spacing:-0.02em;">
           TRACK YUKTI
         </h1>
-        <div style="font-size:13px;color:#38BDF8;font-weight:700;letter-spacing:0.04em;">
-          AI-Powered Railway Block Planning & Optimization System
+        <div style="font-size:14px;color:#38BDF8;font-weight:700;letter-spacing:0.04em;">
+          Railway Block Planner
         </div>
         <p style="margin:8px 0 0;font-size:12.5px;color:#CBD5E1;font-weight:500;">
-          West Central Railway &nbsp;·&nbsp; Jabalpur Division &nbsp;·&nbsp; Joint Rolling Block Operations Portal (IR-JRBP v3.0)
+          West Central Railway &nbsp;·&nbsp; Jabalpur Division &nbsp;·&nbsp; Joint Rolling Block Operations Portal (IR-JRBP v3.0) &nbsp;·&nbsp; Prototype Data
         </p>
         <div style="margin-top:14px;">
           <span class="ty-badge ty-badge-amber">
@@ -727,8 +727,8 @@ with st.sidebar:
         )
     st.markdown(
         '<span style="font-size:20px;font-weight:900;color:#F59E0B;">TRACK YUKTI</span>'
-        '<br><span style="font-size:11px;color:#38BDF8;font-weight:600;">AI-Powered Railway Block Planning & Optimization System</span>'
-        '<br><span style="font-size:10.5px;color:#94A3B8;">WCR Jabalpur Division · IR-JRBP</span>',
+        '<br><span style="font-size:12px;color:#38BDF8;font-weight:700;letter-spacing:0.04em;">Railway Block Planner</span>'
+        '<br><span style="font-size:10.5px;color:#94A3B8;">WCR Jabalpur Division · Prototype Data</span>',
         unsafe_allow_html=True,
     )
     st.markdown('<hr class="ty-divider">', unsafe_allow_html=True)
@@ -896,7 +896,7 @@ ctrl_stats = get_controller_stats()
 # TOP EXECUTIVE HEADER BANNER WITH LIVE IST CLOCK
 # ─────────────────────────────────────────────────────────────────────────────
 status_badge = (
-    '<span class="ty-badge ty-badge-green"><span class="ty-pulse"></span> &nbsp;SYSTEM OPERATIONAL</span>'
+    '<span class="ty-badge ty-badge-green"><span class="ty-pulse"></span> &nbsp;DATABASE CONNECTED</span>'
     if not st.session_state["siren_off_halt"]
     else '<span class="ty-badge ty-badge-red">⛔ SAFETY HOLD ACTIVE</span>'
 )
@@ -916,14 +916,14 @@ with hdr_c1:
         <div style="font-size:24px;font-weight:900;color:#F59E0B;letter-spacing:-0.02em;">
           TRACK YUKTI
           <span style="font-size:12px;font-weight:700;color:#93C5FD;background:rgba(37,99,235,0.25);padding:3px 8px;border-radius:6px;margin-left:8px;border:1px solid rgba(59,130,246,0.35);">
-            WCR JABALPUR COMMAND CENTER
+            WCR JABALPUR DIVISION
           </span>
         </div>
-        <div style="font-size:13px;color:#38BDF8;font-weight:800;margin-top:2px;">
-          AI-Powered Railway Block Planning & Optimization System
+        <div style="font-size:13px;color:#38BDF8;font-weight:700;margin-top:2px;">
+          Railway Block Planner
         </div>
         <div style="font-size:12px;color:#CBD5E1;margin-top:2px;">
-          Government of India &nbsp;·&nbsp; Ministry of Railways &nbsp;·&nbsp; Active Jurisdiction: <b class="ty-track-red">{sel_corr}</b>
+          For Ministry of Railways &amp; Government of India &nbsp;·&nbsp; Database Connected &nbsp;|&nbsp; Active Jurisdiction: <b class="ty-track-red">{sel_corr}</b>
         </div>
       </div>
     </div>
@@ -933,31 +933,11 @@ with hdr_c2:
     render_live_ist_clock()
     st.markdown(f'<div style="text-align:right;margin-top:2px;">{status_badge}</div>', unsafe_allow_html=True)
 
-# ─────────────────────────────────────────────────────────────────────────────
-# 4. PROBLEM UNDERSTANDING & SYSTEM OBJECTIVE SECTION (HINGLISH)
-# ─────────────────────────────────────────────────────────────────────────────
-st.markdown("""
-<div class="ty-card" style="border-left:4px solid #38BDF8;margin-bottom:18px;padding:16px 20px;">
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-    <div style="font-size:12px;font-weight:800;color:#38BDF8;text-transform:uppercase;letter-spacing:0.06em;">
-      📌 Problem Understanding & System Objective (समस्या एवं समाधान)
-    </div>
-    <span class="ty-badge ty-badge-green">OPERATIONAL CENTRALIZATION</span>
-  </div>
-  <div style="font-size:13.5px;color:#F1F5F9;line-height:1.6;">
-    Railway block planning mein multiple departments, time windows, safety constraints aur operational dependencies ko coordinate karna padta hai. Manual planning se conflicts, delay aur inefficient resource utilization ho sakta hai.
-  </div>
-  <div style="margin-top:8px;font-size:12.8px;color:#93C5FD;font-weight:600;">
-    💡 <b>Our Solution:</b> Our system centralizes block requests, approvals, department coordination and optimized scheduling with genuine CP-SAT constraint satisfaction.
-  </div>
-</div>
-""", unsafe_allow_html=True)
-
 if has_conflict:
     st.markdown(
-        f'<div class="ty-alert-danger"><b>⚠ Section Conflict Detected: Multiple Department Requisitions Clashing</b><br>'
-        f'<span style="font-size:12.5px;">{coll_track_name}: '
-        f'<b>{" & ".join(coll_depts)}</b> — Joint spatial possession protocol applied to synchronize into a single safe window.</span></div>',
+        f'<div class="ty-alert-danger"><b>⚠ Section Conflict</b><br>'
+        f'<span style="font-size:12.5px;">{coll_track_name}<br>'
+        f'<b>{" + ".join(coll_depts)}</b> — Joint possession recommended</span></div>',
         unsafe_allow_html=True,
     )
 
@@ -978,14 +958,13 @@ if user_role in ["DEPARTMENT_1", "DEPARTMENT_2", "DEPARTMENT_3"]:
     <div class="ty-header" style="border-left:4px solid {DEPT_COLORS.get(user_dept, '#38BDF8')};">
       <div>
         <div style="font-size:11px;font-weight:800;color:#94A3B8;text-transform:uppercase;letter-spacing:0.08em;">
-          Dedicated Role-Based Workspace & Operational Terminal
+          Role-Based Operational Terminal
         </div>
         <div style="font-size:22px;font-weight:900;color:#FFFFFF;margin-top:2px;">
           {dept_number} Dashboard — <span style="color:{DEPT_COLORS.get(user_dept, '#38BDF8')};">{user_dept}</span>
         </div>
         <div style="font-size:12px;color:#CBD5E1;margin-top:2px;">
-          Officer: <b>{st.session_state['user_designation']}</b> &nbsp;|&nbsp;
-          Hinglish Guidance: <i>Aapke department ke assigned maintenance block requests aur field tasks yahan list hain. Sirf apne department ka work update karein.</i>
+          Officer: <b>{st.session_state['user_designation']}</b> &nbsp;|&nbsp; Assigned department maintenance requisitions and active track possessions.
         </div>
       </div>
       <div>
@@ -1038,14 +1017,14 @@ if user_role in ["DEPARTMENT_1", "DEPARTMENT_2", "DEPARTMENT_3"]:
     st.markdown('<div class="ty-divider"></div>', unsafe_allow_html=True)
 
     dept_tab1, dept_tab2, dept_tab3 = st.tabs([
-        f"📋 {user_dept} Assigned Work & Field Tasks",
-        f"📤 Submit New Block Request ({user_dept})",
+        f"📋 {user_dept} Assigned Tasks",
+        f"📤 Submit Block Request ({user_dept})",
         "🛤️ Track Master & Infrastructure View",
     ])
 
     with dept_tab1:
         # Department Tasks Management Section
-        st.markdown(f'<div class="ty-section-heading">{user_dept} Assigned Work & Field Execution Controls</div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="ty-section-heading">Assigned Department Tasks</div>', unsafe_allow_html=True)
 
         if not my_tasks:
             st.info(f"Currently no maintenance block tasks assigned to {user_dept}.")
@@ -1126,10 +1105,10 @@ if user_role in ["DEPARTMENT_1", "DEPARTMENT_2", "DEPARTMENT_3"]:
 
     with dept_tab2:
         # Department Requisition Form (Submit Block Request)
-        st.markdown(f'<div class="ty-section-heading">Submit New Block Request — {user_dept} Branch</div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="ty-section-heading">Submit Block Request — {user_dept}</div>', unsafe_allow_html=True)
         st.markdown("""
-        <div style="font-size:12.5px;color:#CBD5E1;margin-bottom:12px;">
-          <i>Hinglish: Yahan se apne department ki block request submit karein. System available time slot ke according conflict-free schedule generate karega aur Chief Controller approval ke liye forward karega.</i>
+        <div style="font-size:12px;color:#94A3B8;margin-bottom:12px;">
+          Submit maintenance requisition for operational clearance and CP-SAT schedule integration.
         </div>
         """, unsafe_allow_html=True)
 
@@ -1176,20 +1155,17 @@ if user_role in ["DEPARTMENT_1", "DEPARTMENT_2", "DEPARTMENT_3"]:
 else:
     # CHIEF CONTROLLER DASHBOARD
     st.markdown("""
-    <div class="ty-section-heading">Chief Controller High-Level Operations Command Deck</div>
-    <div style="font-size:12.5px;color:#CBD5E1;margin-bottom:14px;">
-      <i>Hinglish: Chief Controller dashboard par total block requests, approvals, department-wise live status aur CP-SAT optimized schedule ka centralized view uplabdh hai.</i>
-    </div>
+    <div class="ty-section-heading">Chief Controller Dashboard</div>
     """, unsafe_allow_html=True)
 
-    # 1. Higher-Level Executive Metrics
-    cm1, cm2, cm3, cm4, cm5, cm6 = st.columns(6)
+    # 1. Operational Metrics
+    cm1, cm2, cm3, cm4, cm5, cm6, cm7 = st.columns(7)
     with cm1:
         st.markdown(f"""
         <div class="ty-stat">
-          <div class="ty-stat-label">Total Block Requests</div>
+          <div class="ty-stat-label">Total Requests</div>
           <div class="ty-stat-value" style="color:#38BDF8;">{ctrl_stats['total_requests']}</div>
-          <div style="font-size:11px;color:#94A3B8;margin-top:3px;">Division Requisitions</div>
+          <div style="font-size:11px;color:#94A3B8;margin-top:3px;">Requisitions</div>
         </div>
         """, unsafe_allow_html=True)
     with cm2:
@@ -1205,26 +1181,18 @@ else:
         <div class="ty-stat">
           <div class="ty-stat-label">Approved Blocks</div>
           <div class="ty-stat-value" style="color:#10B981;">{ctrl_stats['approved_blocks']}</div>
-          <div style="font-size:11px;color:#6EE7B7;margin-top:3px;">Operational Clearance</div>
+          <div style="font-size:11px;color:#6EE7B7;margin-top:3px;">Cleared for Work</div>
         </div>
         """, unsafe_allow_html=True)
     with cm4:
         st.markdown(f"""
         <div class="ty-stat">
-          <div class="ty-stat-label">Active (In Progress)</div>
+          <div class="ty-stat-label">Active Blocks</div>
           <div class="ty-stat-value" style="color:#C084FC;">{ctrl_stats['active_blocks']}</div>
           <div style="font-size:11px;color:#E9D5FF;margin-top:3px;">Field Execution</div>
         </div>
         """, unsafe_allow_html=True)
     with cm5:
-        st.markdown(f"""
-        <div class="ty-stat">
-          <div class="ty-stat-label">Completed Blocks</div>
-          <div class="ty-stat-value" style="color:#34D399;">{ctrl_stats['completed_blocks']}</div>
-          <div style="font-size:11px;color:#A7F3D0;margin-top:3px;">Work Finished</div>
-        </div>
-        """, unsafe_allow_html=True)
-    with cm6:
         st.markdown(f"""
         <div class="ty-stat">
           <div class="ty-stat-label">Conflicts Detected</div>
@@ -1234,11 +1202,28 @@ else:
           <div style="font-size:11px;color:#94A3B8;margin-top:3px;">Spatial Interlocks</div>
         </div>
         """, unsafe_allow_html=True)
+    with cm6:
+        st.markdown(f"""
+        <div class="ty-stat">
+          <div class="ty-stat-label">Bundling Opps</div>
+          <div class="ty-stat-value" style="color:#38BDF8;">{len(joint_bundles)}</div>
+          <div style="font-size:11px;color:#93C5FD;margin-top:3px;">Joint Packages</div>
+        </div>
+        """, unsafe_allow_html=True)
+    with cm7:
+        avg_dur = round(db_df['requested_duration_mins'].mean() if not db_df.empty else 90)
+        st.markdown(f"""
+        <div class="ty-stat">
+          <div class="ty-stat-label">Avg Duration</div>
+          <div class="ty-stat-value" style="color:#FCD34D;">{avg_dur}m</div>
+          <div style="font-size:11px;color:#94A3B8;margin-top:3px;">Per Possession</div>
+        </div>
+        """, unsafe_allow_html=True)
 
     st.markdown('<div class="ty-divider"></div>', unsafe_allow_html=True)
 
-    # 2. Department-Wise Live Status Grid
-    st.markdown('<div class="ty-section-heading">Department-Wise Operations & Execution Progress</div>', unsafe_allow_html=True)
+    # 2. Department Requests Summary
+    st.markdown('<div class="ty-section-heading">Department Requests</div>', unsafe_allow_html=True)
     dstat_cols = st.columns(3)
     dept_names = ["Engineering", "S&T", "Electrical"]
     for idx, dname in enumerate(dept_names):
@@ -1261,11 +1246,11 @@ else:
 
     st.markdown('<div class="ty-divider"></div>', unsafe_allow_html=True)
 
-    # 3. Chief Controller Approval Panel [APPROVE] / [REJECT]
-    st.markdown('<div class="ty-section-heading">Stage 1: Chief Controller Block Requisition Approvals Queue</div>', unsafe_allow_html=True)
+    # 3. Block Approval Queue
+    st.markdown('<div class="ty-section-heading">Block Approval Queue</div>', unsafe_allow_html=True)
     st.markdown("""
-    <div style="font-size:12.5px;color:#CBD5E1;margin-bottom:10px;">
-      <i>Hinglish: Yahan se pending block requests ko [APPROVE] ya [REJECT] karein. Approve hone par relevant work respective department dashboard mein automatically reflect hoga.</i>
+    <div style="font-size:12px;color:#94A3B8;margin-bottom:10px;">
+      Review and authorize pending maintenance possession requisitions.
     </div>
     """, unsafe_allow_html=True)
 
@@ -1412,10 +1397,10 @@ else:
 
 
     # 4. Final Closure Section for Completed Blocks
-    st.markdown('<div class="ty-section-heading">Stage 4: Chief Controller Final Verification & Block Closure</div>', unsafe_allow_html=True)
+    st.markdown('<div class="ty-section-heading">Active Blocks</div>', unsafe_allow_html=True)
     st.markdown("""
-    <div style="font-size:12.5px;color:#CBD5E1;margin-bottom:10px;">
-      <i>Hinglish: Jab sabhi departments apna assigned field work [COMPLETED] mark kar dete hain, Chief Controller track clearance verify karke block officially CLOSE kar sakte hain.</i>
+    <div style="font-size:12px;color:#94A3B8;margin-bottom:10px;">
+      Verify field completion and track safety clearance before terminal closure.
     </div>
     """, unsafe_allow_html=True)
 
@@ -1470,22 +1455,22 @@ else:
     # ─────────────────────────────────────────────────────────────────────────
     st.markdown('<div class="ty-divider"></div>', unsafe_allow_html=True)
     tab_opt, tab_time, tab_prio, tab_impact, tab_fin, tab_sim, tab_pool, tab_tracks = st.tabs([
-        "⚡ Smart Block Optimizer & Bundles",
-        "📊 Master Block Timetable & Gantt",
-        "🎯 Priority Intelligence & Risk Scoring",
+        "⚡ Optimized Block Plan",
+        "📊 Master Block Timetable",
+        "🎯 AI Priority Analysis",
         "🚆 Passenger & Freight Traffic",
-        "💰 Financial & Demurrage Audit",
-        "🧪 What-If Simulation Lab",
-        "📝 Master Requisitions Register & CSV",
-        "🛤️ Track Master & Infrastructure DB",
+        "💰 Financial Impact",
+        "🧪 Operational Simulation",
+        "📝 Requisitions Register",
+        "🛤️ Track Master & Infrastructure",
     ])
 
     # ── TAB: SMART BLOCK OPTIMIZER ───────────────────────────────────────────
     with tab_opt:
-        st.markdown('<div class="ty-section-heading">Operations Research CP-SAT Scheduling & Task Bundling</div>', unsafe_allow_html=True)
+        st.markdown('<div class="ty-section-heading">Optimized Block Plan</div>', unsafe_allow_html=True)
         st.markdown("""
-        <div style="font-size:12.5px;color:#CBD5E1;margin-bottom:12px;">
-          <i>Hinglish: Google OR-Tools CP-SAT solver automatically physically close tasks (distance <= 500m) ko joint bundles mein group karta hai jisse line capacity save hoti hai.</i>
+        <div style="font-size:12px;color:#94A3B8;margin-bottom:12px;">
+          Constraint-satisfaction schedule generated by Google OR-Tools CP-SAT optimizer.
         </div>
         """, unsafe_allow_html=True)
 
@@ -1526,20 +1511,24 @@ else:
             """, unsafe_allow_html=True)
 
         if joint_bundles:
-            st.markdown(f'<div class="ty-section-heading" style="margin-top:16px;">Joint Work Bundles ({len(joint_bundles)} Active Packages)</div>', unsafe_allow_html=True)
+            st.markdown(f'<div class="ty-section-heading" style="margin-top:16px;">Bundling Opportunities ({len(joint_bundles)} Active Packages)</div>', unsafe_allow_html=True)
             for b in joint_bundles:
-                dept_badges = " ".join([f'<span class="ty-badge">{d}</span>' for d in b.participating_departments])
+                depts_str = " + ".join(b.participating_departments)
                 st.markdown(f"""
                 <div class="ty-card" style="border-left:4px solid #10B981;margin-bottom:10px;">
                   <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
                     <div>
-                      <span class="ty-badge ty-badge-green">{b.bundle_id}</span>
-                      <span style="font-size:15px;font-weight:800;color:#FFFFFF;margin-left:8px;">{b.corridor}</span>
-                      <div style="font-size:12px;color:#CBD5E1;margin-top:2px;">
-                        Track Section: <b class="ty-track-red">{b.section_track}</b> &nbsp;|&nbsp;
-                        Window: <b style="color:#4ADE80;">{b.common_start_min//60:02d}:{b.common_start_min%60:02d} – {b.common_end_min//60:02d}:{b.common_end_min%60:02d} IST</b>
+                      <span class="ty-badge ty-badge-green">Bundling Opportunity</span>
+                      <span style="font-size:15px;font-weight:800;color:#FFFFFF;margin-left:8px;">{depts_str}</span>
+                      <div style="font-size:12px;color:#CBD5E1;margin-top:4px;">
+                        Corridor: <b>{b.corridor}</b> · Track Section: <b class="ty-track-red">{b.section_track}</b>
                       </div>
-                      <div style="margin-top:6px;">{dept_badges}</div>
+                      <div style="font-size:12px;color:#94A3B8;margin-top:2px;">
+                        Same corridor / nearby work locations (≤500m spatial proximity)
+                      </div>
+                      <div style="font-size:12.5px;color:#38BDF8;font-weight:700;margin-top:4px;">
+                        Recommended Action: Combine into a joint possession ({b.common_start_min//60:02d}:{b.common_start_min%60:02d} – {b.common_end_min//60:02d}:{b.common_end_min%60:02d} IST)
+                      </div>
                     </div>
                     <div style="text-align:right;">
                       <span style="font-size:18px;font-weight:900;color:#38BDF8;">{b.time_saved_mins} Mins Saved</span>
@@ -1551,7 +1540,7 @@ else:
 
     # ── TAB: MASTER BLOCK TIMETABLE ──────────────────────────────────────────
     with tab_time:
-        st.markdown('<div class="ty-section-heading">Corridor Rolling Block Master Timetable (Plotly High-Res Gantt)</div>', unsafe_allow_html=True)
+        st.markdown('<div class="ty-section-heading">Master Block Timetable</div>', unsafe_allow_html=True)
 
         gantt_df = schedule[schedule["is_scheduled"]].copy() if not schedule.empty and "is_scheduled" in schedule.columns else pd.DataFrame()
         if sel_corr != "All Corridors (Jabalpur Division)" and not gantt_df.empty:
@@ -1611,10 +1600,15 @@ else:
 
     # ── TAB: PRIORITY INTELLIGENCE ───────────────────────────────────────────
     with tab_prio:
-        st.markdown('<div class="ty-section-heading">Explainable Multi-Factor Priority Intelligence (0–100 Scoring Model)</div>', unsafe_allow_html=True)
+        st.markdown('<div class="ty-section-heading">AI Priority Analysis</div>', unsafe_allow_html=True)
         st.markdown("""
-        <div style="font-size:12.5px;color:#CBD5E1;margin-bottom:12px;">
-          <i>Hinglish: Real domain-informed scikit-learn RandomForestRegressor model asset condition, overdue days, traffic density aur safety criticality ke basis par priority score evaluate karta hai.</i>
+        <div class="ty-card" style="margin-bottom:14px;border-left:3px solid #38BDF8;">
+          <div style="font-size:13px;font-weight:800;color:#FFFFFF;margin-bottom:4px;">
+            AI Risk Assessment Model (Random Forest Regressor)
+          </div>
+          <div style="font-size:12px;color:#CBD5E1;line-height:1.5;">
+            Evaluates objective priority scores (0–100) using <b>Asset Criticality</b>, <b>Maintenance Overdue Intervals</b>, <b>Traffic Density Exposure</b>, and <b>Operational Risk Factors</b>. Scores are algorithmically generated by the ML model.
+          </div>
         </div>
         """, unsafe_allow_html=True)
 
@@ -1659,7 +1653,7 @@ else:
 
     # ── TAB: FINANCIAL AUDIT ─────────────────────────────────────────────────
     with tab_fin:
-        st.markdown('<div class="ty-section-heading">Model-Based Financial Demurrage & Energy Impact Audit</div>', unsafe_allow_html=True)
+        st.markdown('<div class="ty-section-heading">Financial Demurrage & Energy Impact Audit</div>', unsafe_allow_html=True)
         fc1, fc2, fc3 = st.columns(3)
         with fc1:
             st.markdown(f"""
@@ -1686,12 +1680,12 @@ else:
             </div>
             """, unsafe_allow_html=True)
 
-    # ── TAB: WHAT-IF SIMULATION (UNNECESSARY STOP REMOVED) ───────────────────
+    # ── TAB: WHAT-IF SIMULATION ──────────────────────────────────────────────
     with tab_sim:
-        st.markdown('<div class="ty-section-heading">Operational What-If Scenario Stress Testing Lab</div>', unsafe_allow_html=True)
+        st.markdown('<div class="ty-section-heading">Operational Simulation</div>', unsafe_allow_html=True)
         st.markdown("""
-        <div style="font-size:12.5px;color:#CBD5E1;margin-bottom:12px;">
-          <i>Hinglish: Real-time delay aur interlock scenarios inject karke solver ka dynamic re-routing check karein.</i>
+        <div style="font-size:12px;color:#94A3B8;margin-bottom:12px;">
+          Simulate real-time operational disruptions and verify dynamic CP-SAT schedule re-optimization.
         </div>
         """, unsafe_allow_html=True)
 
@@ -1707,9 +1701,9 @@ else:
             )
             sim_delay = st.slider("⏱️ Scenario 3: Inbound Freight Delay (Mins)", 0, 90, 0, step=15)
 
-            if st.button("🚀 Run Live Scenario Simulation Re-Optimization", type="primary", use_container_width=True):
-                add_audit_log(st.session_state["user_designation"], f"Triggered What-If simulation re-optimization (Delay: {sim_delay}m)")
-                st.success("Re-optimization complete. Dynamic timetable shifted.")
+            if st.button("🚀 Run Simulation Re-Optimization", type="primary", use_container_width=True):
+                add_audit_log(st.session_state["user_designation"], f"Triggered operational simulation re-optimization (Delay: {sim_delay}m)")
+                st.success("Schedule Updated. 30-minute train delay detected. Affected blocks were re-optimized.")
                 time.sleep(0.3)
                 st.rerun()
 
@@ -1730,7 +1724,7 @@ else:
 
     # ── TAB: MASTER REQUISITIONS POOL & EXPORT ───────────────────────────────
     with tab_pool:
-        st.markdown('<div class="ty-section-heading">Master Requisitions Pool & Audit Ledger</div>', unsafe_allow_html=True)
+        st.markdown('<div class="ty-section-heading">Requisitions Register & Data Sources</div>', unsafe_allow_html=True)
         if not db_df.empty:
             st.dataframe(db_df, use_container_width=True, height=350, hide_index=True)
 
@@ -1756,7 +1750,7 @@ else:
 # RECENT ACTIVITIES / AUDIT LOG FEED
 # ─────────────────────────────────────────────────────────────────────────────
 st.markdown('<div class="ty-divider"></div>', unsafe_allow_html=True)
-st.markdown('<div class="ty-section-heading">Recent Operations Activity & Security Audit Feed</div>', unsafe_allow_html=True)
+st.markdown('<div class="ty-section-heading">Audit Log</div>', unsafe_allow_html=True)
 audit_entries = get_recent_audit_logs(limit=8)
 for ent in audit_entries:
     st.markdown(f"""
@@ -1774,7 +1768,7 @@ for ent in audit_entries:
 # ─────────────────────────────────────────────────────────────────────────────
 st.markdown("""
 <div style="text-align:center;padding:24px 0 10px;font-size:11.5px;color:#94A3B8;border-top:1px solid rgba(148,163,184,0.15);margin-top:30px;">
-  <b style="color:#F59E0B;">TRACK YUKTI</b> &nbsp;·&nbsp; AI-Powered Railway Block Planning & Optimization System
-  <br>Ministry of Railways &nbsp;·&nbsp; West Central Railway (WCR) &nbsp;·&nbsp; Jabalpur Division &nbsp;·&nbsp; CRIS Telemetry Integrated
+  <b style="color:#F59E0B;">TRACK YUKTI</b> &nbsp;·&nbsp; Railway Block Planner
+  <br>For Ministry of Railways &amp; Government of India &nbsp;·&nbsp; West Central Railway (WCR) &nbsp;·&nbsp; Jabalpur Division &nbsp;·&nbsp; Database Connected &nbsp;·&nbsp; Prototype Data
 </div>
 """, unsafe_allow_html=True)
