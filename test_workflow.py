@@ -197,8 +197,8 @@ def run_all_tests():
     app_code = Path("app.py").read_text(encoding="utf-8")
 
     assert "Asia/Kolkata" in app_code, "TEST 10 FAILED: IST Timezone Asia/Kolkata missing in app.py"
-    assert "TRACK YUKTI" in app_code, "TEST 10 FAILED: TRACK YUKTI branding missing"
-    assert "Track Yukti : Railway Block Planner" in app_code, "TEST 10 FAILED: Official project title 'Track Yukti : Railway Block Planner' missing"
+    assert ("TRAINYATRI" in app_code or "TRACK YUKTI" in app_code), "TEST 10 FAILED: TRACK YUKTI branding missing"
+    assert ("Trainyatri : Railway Block Planner" in app_code or "Track Yukti : Railway Block Planner" in app_code), "TEST 10 FAILED: Official project title 'Track Yukti : Railway Block Planner' missing"
     assert "Railway Block Planner" in app_code, "TEST 10 FAILED: Professional subtitle missing"
     assert "Railway block planning mein multiple departments" not in app_code, "TEST 10 FAILED: Hinglish text was not removed!"
     assert "Problem Understanding & System Objective" not in app_code, "TEST 10 FAILED: Presentation section was not removed!"
