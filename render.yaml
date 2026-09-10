@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: wcr-railway-block-planner
+    name: trainyatri-railway-block-planner
     runtime: docker
     plan: free
     region: singapore
